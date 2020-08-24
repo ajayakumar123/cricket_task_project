@@ -1,0 +1,101 @@
+{% extends 'cricket/home.html' %}
+{% block body_block %}
+    <div class="container">
+        <div class="row">
+            <div class="col-10 bg-white border-radius py-5 m-auto nav-shadow">
+                <div class="col-md-12 m-auto px-5 nav-shadow text-center rounded">
+                    <div class="player-container">
+                        <div class="player-data">
+                            <h2 >{{player_obj.full_name}}</h2>
+                            {{player_obj.team.name}}<img src="{{player_obj.team.logo_uri.url}}"width="30px" height="20px"/>
+                        </div>
+                        <div class="player-data">
+                            <img src="{{player_obj.profile_picture.url}}"/>
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-responsive">
+                        <table class="table">
+
+                            <tr>
+                                <td>
+                                    No.of Matches Played
+
+                                </td>
+                                <td>
+                                    {{player_obj.no_of_matches}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Country
+
+                                </td>
+                                <td>
+                                    {{player_obj.country}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Runs
+
+                                </td>
+                                <td>
+                                    {{player_obj.runs}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    Highest Score
+                                </td>
+                                <td>
+                                    {{player_obj.highest_score}}
+                                </td>
+                            </tr>
+                             <tr>
+                                <td>
+                                    Fifties
+
+                                </td>
+                                <td>
+                                    {{player_obj.fifties}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Hundreds
+                                </td>
+                                <td>
+                                    {{player_obj.hundreds}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Strike Rate
+
+                                </td>
+                                <td>
+                                    {{player_obj.strike_rate}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    jersey Number
+
+                                </td>
+                                <td>
+                                    {{player_obj.jersey_number}}
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

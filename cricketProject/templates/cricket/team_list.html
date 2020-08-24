@@ -1,0 +1,24 @@
+{% extends 'cricket/home.html' %}
+{% block body_block %}
+    <div class="container">
+        <div class="row">
+            <div class="col-10 bg-white border-radius py-5 m-auto nav-shadow">
+                <div class="col-md-12 m-auto px-5 nav-shadow text-center rounded">
+                    <h2 class="pb-4" >Teams</h2>
+                    <div class="table-responsive">
+                        {%for team in team_list %}
+                            <div class="card bg-light border-secondary mb-3">
+                                <a href="{% url 'team_detail' team.id %}">
+                                    <div class="card-body">
+                                        <img src="{{team.logo_uri.url}}" width="50px" height="40px"/>
+                                        {{team.name}}
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

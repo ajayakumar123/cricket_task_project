@@ -1,0 +1,43 @@
+{% extends 'cricket/home.html' %}
+{% block body_block %}
+    <div class="container">
+        <div class="row">
+            <div class="col-10 bg-white border-radius py-5 m-auto nav-shadow">
+                <div class="col-md-12 m-auto px-5 nav-shadow text-center rounded">
+                    <h2 class="pb-4" >Standings</h2>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="btn-secondary text-white">
+                                   <th>Team</th>
+                                    <th>Played</th>
+                                    <th>Won</th>
+                                    <th>Lost</th>
+                                    <th>Points</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {%for team in team_list %}
+                                    <tr>
+                                        <td>
+                                            <img src="{{team.logo_uri.url}}" width="50px" height="40px"/> {{team.name}}
+                                        </td>
+                                        <td>
+                                            {{team.matches_played}}
+                                        </td>
+                                        <td>
+                                          {{team.matches_won}}
+                                        </td>
+
+                                        <td>{{team.matches_lost}}</td>
+                                        <td>{{team.team_points}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

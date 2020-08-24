@@ -1,0 +1,79 @@
+{% extends 'cricket/home.html' %}
+{% block body_block %}
+    <div class="container">
+        <div class="row">
+            <div class="col-10 bg-white border-radius py-5 m-auto nav-shadow">
+                <div class="col-md-12 m-auto px-5 nav-shadow text-center rounded">
+                    <img src="{{team_obj.logo_uri.url}}"width="50px" height="40px"/>
+                    <h2 class="pb-4" >{{team_obj.name}}</h2>
+
+                         <table class="table">
+
+                            <tr>
+                                <td>
+                                    No.of Matches Played
+
+                                </td>
+                                <td>
+                                    {{team_obj.matches_played}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Matches Won
+
+                                </td>
+                                <td>
+                                    {{team_obj.matches_won}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Matches Lost
+
+                                </td>
+                                <td>
+                                    {{team_obj.matches_lost}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Points
+
+                                </td>
+                                <td>
+                                    {{team_obj.team_points}}
+                                </td>
+                            </tr>
+                             <tr>
+                                <td>
+                                    Club State
+
+                                </td>
+                                <td>
+                                    {{team_obj.club_state}}
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    <h4>{{team_obj.name}} Squad</h4>
+
+                    <div class="table-responsive">
+                      {% for player in player_list %}
+                        <div class="card bg-light border-secondary mb-3">
+                                <a href="{% url 'player_detail' player.id%}">
+                                    <div class="card-body" style="float:left">
+                                        <img src="{{player.profile_picture.url}}" width="50px" height="40px" style="float:left"/>{{player.full_name}}
+                                    </div>
+                                </a>
+                        </div>
+                      {% endfor %}
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

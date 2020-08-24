@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        {% include "includes/header.html" %}
+        <meta charset="UTF-8">
+            <title>Task Manager</title>
+    </head>
+    <body class="bg-navy-blue">
+        <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 box-shadow bg-white mb-5">
+            <h5 class="my-0 mr-md-auto">
+                <a href="">
+                    <img style="width:45px;" src="{%static 'images/worldcup.png'%}">
+                </a>
+            </h5>
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'team_list' %}">Teams <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'match_list' %}">Matches</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'point_list' %}">Standings</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="">News</a>
+                        </li>
+                         <li class="nav-item active">
+                            <a class="nav-link" href="">Videos</a>
+                        </li>
+                    </ul>
+                </div>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </nav>
+
+        </div>
+        <div class="tab-content">
+            {% block body_block %}
+
+            {% endblock %}
+        </div>
+    </body>
+    {% include "includes/footer.html" %}
+</html>
