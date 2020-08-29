@@ -3,6 +3,7 @@ from datetime import datetime
 from django.core.exceptions import ValidationError
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
+from django.urls import reverse
 import pytz
 utc=pytz.UTC
 
@@ -68,6 +69,9 @@ class Match(models.Model):
     def match_name(self):
         "Returns the match's full name."
         return '%s-%s' % (self.team1, self.team2)
+
+    def get_absolute_url(self):
+        return reverse('match_list')
 
     def __str__(self):
         "Returns the string representation of match object"

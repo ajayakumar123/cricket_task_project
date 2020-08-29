@@ -4,16 +4,29 @@
         <div class="row">
             <div class="col-10 bg-white border-radius py-5 m-auto nav-shadow">
                 <div class="col-md-12 m-auto px-5 nav-shadow text-center rounded">
-                    <h2 class="pb-4" >Matches</h2>
+                    <h2 class="pb-4 d-inline " >Matches</h2>
+                    <div class="btn-group create-bt" role="group" >
+                                        <a class="btn-sm btn btn-secondary" href="{%url 'match_create'%}">
+                                                Create New Match</a>
+                                    </div>
                     <div class="table-responsive">
                         {%for match in match_list %}
                             <div class="card bg-light border-secondary mb-3">
                                 <div class="card-header">
                                     {% if match.match_winner_team %}
-                                        <p>winner : {{match.match_winner_team}} </p>
+                                        <p class="d-inline">winner : {{match.match_winner_team}} </p>
                                     {% else %}
-                                         <p>upcoming</p>
+                                         <p class="d-inline">upcoming</p>
+                                        <div class="btn-group create-bt" role="group" >
+                                            <a class="btn-sm btn btn-secondary" href="{%url 'match_update' match.id%}">
+                                                    Update</a>
+                                        </div>
+                                        <div class="btn-group create-bt" role="group" >
+                                            <a class="btn-sm btn btn-secondary" href="{%url 'match_delete' match.id%}">
+                                                    Delete</a>
+                                        </div>
                                     {% endif %}
+
                                 </div>
                                 <div class="card-body">
                                     <div class="player-data">

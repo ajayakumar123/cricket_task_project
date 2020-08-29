@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from cricketApp.models import Team,Player,Match
+from django.views.generic import ListView,CreateView,UpdateView,DeleteView
+from django.urls import reverse_lazy
+from cricketApp.forms import MatchForm
 
 # Create your views here.
 
@@ -30,6 +33,35 @@ def match_list_view(request):
     print("match list view")
     match_list=Match.objects.all()
     return render(request, 'cricket/match_list.html', context={'match_list':match_list})
+
+
+class MatchListView(ListView):
+    model=Match
+    template_name='cricket/match_list.html'
+    context_object_name='match_list'
+
+
+class MatchCreateView(CreateView):
+    model=Match
+    form_class = MatchForm
+    template_name = 'cricket/match_create.html'
+    # fields = ('match_date','location','team1','team2','team1_score','team2_score','match_winner')
+
+
+
+class MatchUpdateView(UpdateView):
+    model=Match
+    form_class = MatchForm
+    template_name = 'cricket/match_create.html'
+
+
+
+class MatchDeleteView(DeleteView):
+    model=Match
+    template_name = 'cricket/match_delete.html'
+    success_url = reverse_lazy('match_list')
+
+
 
 def point_list_view(request):
 
